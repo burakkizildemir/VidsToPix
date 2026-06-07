@@ -18,6 +18,8 @@
 
 ![Home Screen](images/main.JPG)
 
+# VidsToPix
+
 Ultra-high-resolution photomosaic generator from youtube and local video frames, built with C# WPF.
 
 The application allows users to create large mosaic images from YouTube videos and local video files by rebuilding a target image using thousands of extracted video frames.
