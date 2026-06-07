@@ -175,6 +175,14 @@ Rather than leaving the project archived on a hard drive, I decided to publish i
 
 ---
 
+## Support
+
+If you find this project interesting or useful, please consider starring the repository.
+
+Contributions, feedback, and suggestions are always welcome.
+
+---
+
 # License
 
 MIT License
