@@ -10,9 +10,9 @@
 
 ## Maximum Output Example
 
-![100x100 Output](images/last.jpg)
+![100x100 Output](images/last.JPG)
 
-![100x100 Output](images/last2.jpg)
+![100x100 Output](images/last2.JPG)
 
 ## User Interface
 
