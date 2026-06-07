@@ -1,0 +1,1752 @@
+﻿<Window x:Class="pielx.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pielx"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Topmost="False"
+        Background="AliceBlue"
+        Loaded="Window_Loaded"        
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="450"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#0f0f2f" Grid.ColumnSpan="2" MouseDown="Grid_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="116*"/>
+                <ColumnDefinition Width="184*"/>
+                <ColumnDefinition Width="222*"/>
+                <ColumnDefinition Width="48*"/>
+
+            </Grid.ColumnDefinitions>
+            <Image Source="Images/Logo.png"
+                   Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   MouseDown="TextBlock_MouseDown" Height="28" Margin="0,1,74,1" Width="156" Grid.ColumnSpan="2"
+                   >
+            </Image>
+            <Label Name="home"
+                   Foreground="Wheat"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Grid.Column="4" Margin="11,0,125,0"
+                   >
+                <TextBlock Width="40" PreviewMouseDown="TextBlock_PreviewMouseDown">
+                      <Underline>Home</Underline>
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property= "Foreground" Value="Wheat"/>
+                            <Style.Triggers>
+                                <Trigger Property ="IsMouseOver" Value="True">
+                                    <Setter Property= "Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Label>
+            <Label Name="howto"
+                   Foreground="Wheat"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Grid.Column="4" Margin="60,0,70,0">
+                <TextBlock TextDecorations="Underline" PreviewMouseDown="TextBlock_PreviewMouseDown_1">
+                    <Underline>How To?</Underline>
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property= "Foreground" Value="Wheat"/>
+                            <Style.Triggers>
+                                <Trigger Property ="IsMouseOver" Value="True">
+                                    <Setter Property= "Foreground" Value="White"/>
+                                </Trigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Label>
+            <Label Name="donateLink"
+                   Foreground="Wheat"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Grid.Column="4" Margin="122,0,10,0">
+                <TextBlock TextDecorations="Underline" PreviewMouseDown="TextBlock_PreviewMouseDown_2">
+                     <Underline>Donate</Underline>
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property= "Foreground" Value="Wheat"/>
+                            <Style.Triggers>
+                                <Trigger Property ="IsMouseOver" Value="True">
+                                    <Setter Property= "Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Label>
+            <Label Name="contact"
+                   Foreground="Wheat"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Grid.Column="4" Margin="177,0,10,0">
+                <TextBlock TextDecorations="Underline" PreviewMouseDown="TextBlock_PreviewMouseDown_3">
+                     <Underline>FAQ</Underline>
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property= "Foreground" Value="Wheat"/>
+                            <Style.Triggers>
+                                <Trigger Property ="IsMouseOver" Value="True">
+                                    <Setter Property= "Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Label>
+            <Label Grid.Column="1"
+                   Content="Mosaic Images from Videos Tool V1.0"
+                   Foreground="White"
+                   FontSize="15"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Top"
+                   FontWeight="Bold" Grid.ColumnSpan="3" Margin="41,0,10,0"
+                   >
+            </Label>
+            <Button Width="20" 
+                    Grid.Column="5" 
+                    HorizontalAlignment="Right"
+                    MouseDown="Button_MouseDown" Margin="0,5"
+                    >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                        <Setter Property="Cursor" Value="Hand"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Black"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+                <Image Source="Images/close.png" 
+                        Height="18" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        MouseDown="Button_MouseDown"
+                       >
+                    <Image.ToolTip>
+                        <ToolTip>
+                            Exit.
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+            </Button>
+            <Button Width="20" 
+                    Grid.Column="5" 
+                    HorizontalAlignment="Center"
+                    MouseDown="Button_MouseDown" Margin="4,5,24,5"                    
+                    >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                        <Setter Property="Cursor" Value="Hand"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Black"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Image x:Name="minimize" Source="Images/minimize.png" 
+                   Height="18" 
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Center"
+                   MouseDown="minimize_MouseDown"
+                       >
+                    <Image.ToolTip>
+                        <ToolTip>
+                            Minimizes Window.
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+            </Button>
+        </Grid>
+        <TabControl HorizontalAlignment="Right" 
+                    Height="450" 
+                    Grid.Row="1" 
+                    VerticalAlignment="Top" 
+                    Width="800" 
+                    Background="White"
+                    x:Name="tabControl" Grid.ColumnSpan="2"
+                    >
+            <TabItem Background="Transparent" Width="100" x:Name="homeTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/home.png" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text=" Home" 
+                                   Foreground="#0f0f2f" 
+                                   FontWeight="Medium" 
+                                   FontSize="16"
+                                   FontFamily="Font/#StardosRegular"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="320"></RowDefinition>
+                        <RowDefinition Height="64"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="BlueViolet"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Images/back.png" Stretch="Uniform" AlignmentX="Right" AlignmentY="Center"/>
+                        </Grid.Background>
+                        <Label Content="Wellcome to                 " 
+                               HorizontalAlignment="Left" 
+                               Margin="5,32,0,0" 
+                               VerticalAlignment="Top" 
+                               Width="375"
+                               FontWeight="ExtraBold"
+                               FontSize="30"
+                               Foreground="#3a0054"
+                               HorizontalContentAlignment="Center"
+                               />
+                        <Image Source="Images/LogoOnpage.jpg" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="220,33,15,26" Width="162"/>
+                        <TextBlock TextWrapping="WrapWithOverflow" 
+                                   Margin="9,0,11,90" 
+                                   Grid.RowSpan="2"
+                                   FontWeight="ExtraBold"
+                                   FontSize="15"
+                                   Foreground="#3a0054"
+                                   TextAlignment="Center" Grid.Row="1"
+                                   >
+                            VidsToPix is the best modern Mosaic Image Maker to create Mosaic images 
+                            of various sizes using the videos you choose and 
+                            any YouTube Videos you like. You can choose any 
+                            video you like and then share it with your 
+                            friends by obtaining mosaic images of various 
+                            sizes for free. Now enjoy it.
+                        </TextBlock>
+                        <Button x:Name="NewProject"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Content="Start New Project"
+                                FontSize="18"
+                                FontWeight="Bold"                                        
+                                PreviewMouseDown="NewProject_PreviewMouseDown"
+                                Margin="100,44,100,22"
+                                    Grid.Row="2"
+                                    >
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+
+                                            <Setter Property="Background" Value="Blue"/>
+                                            <Setter Property="Button.Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="25" Width="190" Height="40" BorderBrush="BlueViolet"
+                                        BorderThickness="1" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                        </Border.Effect>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    Starts a new Mosaic Image Project.
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                        <Button x:Name="OpenoldProjects_Copy"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Content="Open Old Projects"
+                            FontSize="15"
+                            FontWeight="Bold"                                        
+                            PreviewMouseDown="OpenoldProjects_PreviewMouseDown"
+                            Margin="0,116,3,-55" Width="239"
+                            Grid.Column="1" Grid.Row="2" Height="45"
+                                    >
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    Opens Old Projects directory.
+                                </ToolTip>
+                            </Button.ToolTip>
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Blue"/>
+                                            <Setter Property="Button.Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="16" Width="160" Height="30" BorderBrush="BlueViolet"
+                                        BorderThickness="1" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                        </Border.Effect>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Button x:Name="browseProjectButton"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="..."
+                                Foreground="White"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Click="browseProjectButton_Click" 
+                                Margin="260,0,0,0"
+                                >
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    Choose project directory where you want to create.
+                                </ToolTip>
+                            </Button.ToolTip>
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Background" Value="LightSkyBlue"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="5" Width="30" Height="30" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                        <Border BorderBrush="Blue" BorderThickness="1">
+                            <Label Content="Project Path: "
+                               FontSize="15"
+                               FontWeight="Black"
+                               Foreground="DeepSkyBlue"
+                                   >
+                            </Label>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                        <Border BorderBrush="Blue" BorderThickness="1">
+                            <Label Name="pathLbl" Content="..."
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               Foreground="DeepSkyBlue"
+                               Margin="110,0,0,0" Width="391"
+                                   >
+                            </Label>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Transparent" Width="150" x:Name="photoTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/selectPhoto.png" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="Select Photo" 
+                                   Foreground="#0f0f2f" 
+                                   FontWeight="Medium" 
+                                   FontSize="16"
+                                   FontFamily="Font/#StardosRegular"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid Background="BlueViolet" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid Background="White" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="312"></RowDefinition>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Background="White" Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="450"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image Source="Images/Home2.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,201,10,10" Height="89" Width="430"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Background="White">
+                                <StackPanel>
+                                    <Image x:Name="photoImage" 
+                                       Width="304" 
+                                       Height="250"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Source="Images/select.png"
+                                       Stretch="Uniform"
+                                       MouseDown="photoImage_MouseDown" Margin="-9,30,45,25"
+                                       Cursor="Hand"
+                                           >
+                                        <Image.ToolTip>
+                                            <ToolTip>
+                                                Select the photo you want to make Mosaic.
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Top" Margin="79,0,89,0" Width="166">
+                                    <Label Name="photoSelectedLbl"
+                                        Content="Photo Selected Succesfully"
+                                           Foreground="Blue"
+                                           FontWeight="Bold"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Margin="-70,0,0,0" 
+                                           Visibility="Hidden"
+                                           >
+                                    </Label>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="240,0,70,0" >
+                                    <Image x:Name="photoSelectedImage" Source="Images/ok.png" Height="25" HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           Visibility="Hidden"/>
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock Text="Choose a main photo you wanted to make Mosaic." 
+                                   HorizontalAlignment="Center" 
+                                   Margin="10,35,10,0" 
+                                   VerticalAlignment="Top" 
+                                   RenderTransformOrigin="0.474,0.577"
+                                   Foreground="BlueViolet"
+                                   FontWeight="ExtraBold"
+                                   FontSize="25" Width="430"
+                                       TextWrapping="Wrap"
+                                   />
+                            <TextBlock HorizontalAlignment="Left" 
+                                       Margin="10,155,0,0" 
+                                       TextWrapping="Wrap" 
+                                       Text="*Select a Square shaped photo for better results *Only Jpeg/Jpg file type is supported." 
+                                       VerticalAlignment="Top"
+                                       Foreground="IndianRed"
+                                       FontWeight="DemiBold"
+                                       FontSize="15" Width="345"
+                                       />
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Button x:Name="backtoHome"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Back"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="backPage"
+                                    Margin="0,10,0,0"
+                                >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Back to Start New Project screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <Button x:Name="nextToSelectPhoto"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Next"
+                                        FontSize="25"
+                                        FontWeight="Medium"                                        
+                                        PreviewMouseDown="nextPage"
+                                    Margin="0,10,0,0" 
+                                >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Next to Add Youtube Video screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Transparent" Width="160" x:Name="youtubeVideoTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/youtube.png" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text=" Add YouTube" 
+                                   Foreground="#0f0f2f" 
+                                   FontWeight="Medium" 
+                                   FontSize="16"
+                                   FontFamily="Font/#StardosRegular"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Background="BlueViolet" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid Background="White" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="312"></RowDefinition>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Button x:Name="backtoPhotoSelect"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Back"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="backPage"
+                                        Margin="0,10,0,0"
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Back to Start Select Main Photo screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <Button x:Name="nextToSelectOtherVideos"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Next"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="nextPage"
+                                        Margin="0,10,0,0"  
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Next to Add Videos from Local Computer screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True" >
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                        <Rectangle RadiusX="10" RadiusY="10" Fill="DarkGray" HorizontalAlignment="Left" Height="87" Margin="10,6,0,0" Stroke="Black" VerticalAlignment="Top" Width="770">
+                        </Rectangle>
+                        <Button x:Name="search"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Width="80" Height="53"
+                                        Foreground="White"
+                                        Content="Search"
+                                        FontSize="15"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="search_PreviewMouseDown"
+                                        Margin="694,23,20,0"
+                                        >
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    Search on YouTube.
+                                </ToolTip>
+                            </Button.ToolTip>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Background" Value="red"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="DarkRed"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border CornerRadius="18" Width="80" Height="51" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBox HorizontalAlignment="Left"
+                                 Height="53"
+                                 Margin="21,23,0,0"
+                                 TextWrapping="NoWrap"
+                                 VerticalAlignment="Top"
+                                 Width="663"
+                                 VerticalContentAlignment="Center"
+                                 FontWeight="Medium"
+                                 FontStyle="Italic"
+                                 FontSize="16"
+                                 Name="youtubeLinkTextBox"  
+                                 TextChanged="youtubeLinkTextBox_TextChanged"
+                                 >
+                            <TextBox.Background>
+                                <ImageBrush x:Name="brush" ImageSource="Images/TextBoxBackground.png" AlignmentX="Left"  />
+                            </TextBox.Background>
+                        </TextBox>
+                        <Image HorizontalAlignment="Left"
+                               Height="198"
+                               Margin="10,101,0,13"
+                               VerticalAlignment="Center"
+                               Width="276"
+                               Name="youtubeVideoImage"
+                               Source="Images/youtube2.png"
+                               />
+                        <Border BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Left" Height="200" Margin="10,100,0,0" VerticalAlignment="Top" Width="276"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Left" Height="200" Margin="286,100,0,0" VerticalAlignment="Top" Width="494">
+                            <Button x:Name="downloadVideo"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Content="Download and Add"
+                                FontSize="20"
+                                FontWeight="Medium"
+                                PreviewMouseDown="downloadVideo_PreviewMouseDown"
+                                Margin="1,143,287,5"  
+                                VerticalContentAlignment="Top"
+                                HorizontalContentAlignment="Center" Width="204"
+                                >
+                                <Button.ToolTip>
+                                    <ToolTip>
+                                        Downloads the video you are looking for and adds it to your video list.
+                                    </ToolTip>
+                                </Button.ToolTip>
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Background" Value="Red"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True" >
+                                                <Setter Property="Background" Value="DarkRed"/>
+                                                <Setter Property="Button.Effect">
+                                                    <Setter.Value>
+                                                        <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="25" Width="200" Height="50" Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <Border.Effect>
+                                                <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                            </Border.Effect>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Border>
+                        <Label HorizontalAlignment="Left" 
+                               Margin="343,105,0,0" 
+                               VerticalAlignment="Top"
+                               Name="youtubeVideoTitle"
+                               FontSize="15"
+                               FontWeight="ExtraBold"
+                               FontStyle="Italic" RenderTransformOrigin="0.98,0.5" Height="30" Width="426"
+                               Foreground="Black"
+                               />
+                        <Label HorizontalAlignment="Left" 
+                            Margin="362,135,0,0" 
+                            VerticalAlignment="Top"
+                            x:Name="youtubeVideoAuthor"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                            FontStyle="Italic" Height="30" Width="407"
+                            
+                               />
+                        <Label HorizontalAlignment="Left" 
+                            Margin="381,165,0,0" 
+                            VerticalAlignment="Top"
+                            x:Name="youtubeVideoDuriation"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                            FontStyle="Italic" Height="30" Width="327"
+                               />
+                        <Label Content="Title: " 
+                            HorizontalAlignment="Left" 
+                            Margin="291,105,0,0" 
+                            VerticalAlignment="Top"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                            FontStyle="Italic" Height="30" Width="52"
+                               />
+                        <Label Content="Author: " 
+                            HorizontalAlignment="Left" 
+                            Margin="291,135,0,0" 
+                            VerticalAlignment="Top"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                            FontStyle="Italic" Height="30" Width="71"
+                               />
+                        <Label Content="Duriation: " 
+                            HorizontalAlignment="Left" 
+                            Margin="291,165,0,0" 
+                            VerticalAlignment="Top"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                            FontStyle="Italic" Height="30" Width="90"
+                               />
+                        <Label Content="Status: " 
+                            HorizontalAlignment="Left" 
+                            Margin="291,193,0,0" 
+                            VerticalAlignment="Top"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                               Foreground="Green" RenderTransformOrigin="1.371,0.433" Height="30" Width="65"
+                               
+                               />
+                        <TextBlock
+                               Name="status"
+                            HorizontalAlignment="Left" 
+                            TextAlignment="Left"
+                            Margin="356,198,0,0" 
+                            VerticalAlignment="Top"
+                            FontSize="15"
+                            FontWeight="ExtraBold"
+                            Foreground="Red" Height="39" Width="413"
+                            TextWrapping="Wrap"
+                            Text=""
+                               />
+                        <MediaElement Source="Images/download.gif" Visibility="Hidden" Margin="490,228,203,13" x:Name="downloading" LoadedBehavior="Play" UnloadedBehavior="Manual" MediaEnded="downloading_MediaEnded"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Transparent" Width="150" x:Name="videoTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/addVideos.png" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text=" Add Videos" 
+                                   Foreground="#0f0f2f" 
+                                   FontWeight="Medium" 
+                                   FontSize="16"
+                                   FontFamily="Font/#StardosRegular"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Background="BlueViolet" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid Background="White" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="312"></RowDefinition>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1" 
+                                  Background="White" 
+                                  Height="300"
+                                  VerticalAlignment="Top"
+                                  >
+                                <StackPanel>
+                                    <Button x:Name="addVideoButton"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Width="395" Height="56"
+                                        Foreground="White"
+                                        Content="Browse Local Videos"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        PreviewMouseDown="addVideoButton_MouseDown"
+                                        Margin="0,30,0,10"
+                                        >
+                                        <Button.ToolTip>
+                                            <ToolTip>
+                                                It allows you to select videos from local files and add them to the list.
+                                            </ToolTip>
+                                        </Button.ToolTip>
+                                        <Button.Style>
+                                            <Style TargetType="{x:Type Button}">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                                <Setter Property="Background" Value="DeepSkyBlue"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="Blue"/>
+                                                        <Setter Property="Button.Effect">
+                                                            <Setter.Value>
+                                                                <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border CornerRadius="25" Width="220" Height="50" Background="{TemplateBinding Background}">
+                                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                    <Border.Effect>
+                                                        <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                    </Border.Effect>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </StackPanel>
+                                <StackPanel Name="VideoNamesStackPanel" 
+                                            VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center"
+                                            Margin="10,50,10,10"
+                                            >
+                                    <Label Content="Added Videos List" 
+                                           FontWeight="DemiBold" 
+                                           Foreground="White"
+                                           BorderBrush="BlueViolet"
+                                           BorderThickness="1"
+                                           FontSize="18"
+                                           Width="374"
+                                           HorizontalContentAlignment="Center"
+                                           Background="LightSkyBlue"
+                                           >
+                                    </Label>
+                                    <ListBox x:Name="videoListBox"
+                                             Width="374" 
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Top" 
+                                             Height="100"
+                                             BorderBrush="BlueViolet"
+                                             BorderThickness="1"
+                                             FontFamily="Font/#StardosRegular"
+                                             FontWeight="DemiBold"
+                                             Foreground="DarkBlue"
+                                             FontSize="15"     
+                                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                             >
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,2">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="310" />
+                                                        <ColumnDefinition Width="50" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Text="{Binding Name}" />
+                                                    <TextBlock HorizontalAlignment="Right" Grid.Column="1" Text="{Binding Time}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="266,0,11,4">
+                                    <Button x:Name="deleteVideo"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Content="Delete Video"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            FontSize="15"
+                                            FontWeight="Bold"
+                                            PreviewMouseDown="deleteVideo_PreviewMouseDown"
+                                            Margin="0,15,0,15" Height="28"
+                                        >
+                                        <Button.ToolTip>
+                                            <ToolTip>
+                                                Deletes selected videos from Added Videos List.
+                                            </ToolTip>
+                                        </Button.ToolTip>
+                                        <Button.Style>
+                                            <Style TargetType="{x:Type Button}">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                                <Setter Property="Background" Value="IndianRed"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="DarkRed"/>
+                                                        <Setter Property="Effect">
+                                                            <Setter.Value>
+                                                                <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border CornerRadius="12" Width="120" Height="25" Background="{TemplateBinding Background}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                    </Border.Effect>
+                                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </StackPanel>
+                                <Label Content="Total Time(mm:ss): " 
+                                       HorizontalAlignment="Left" 
+                                       Margin="12,252,0,0" 
+                                       VerticalAlignment="Top"
+                                       x:Name="totalTime"
+                                       FontSize="15"
+                                       FontWeight="Bold"
+                                       />
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Button x:Name="backtoYoutubeVideo"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Back"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="backPage"
+                                        Margin="0,10,0,0"
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Back to Add Youtube Video screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <Button x:Name="nextToCustomize"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Next"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="NextToCustomize_Click"
+                                        Margin="0,10,0,0"  
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Next to Customize screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True" >
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Text="Choose video(s) you wanted to make Mosaic from local computer." 
+                            HorizontalAlignment="Left" 
+                            Margin="20,35,0,0" 
+                            VerticalAlignment="Top" 
+                            RenderTransformOrigin="0.474,0.577"
+                            Foreground="BlueViolet"
+                            FontWeight="ExtraBold"
+                            FontSize="25" Width="389"
+                                   TextWrapping="Wrap" Height="100"
+                                   />
+                        <TextBlock HorizontalAlignment="Left" 
+                            Margin="20,154,0,0" 
+                            TextWrapping="Wrap" 
+                            Text="*You can add a maximum of 5 videos.                      *The total duration of the added videos are limited to 15 minutes. 
+                                   
+                                   *Only Mpeg, Mpg, Avi, Mp4 video file types are supported." 
+                            VerticalAlignment="Top"
+                            Foreground="IndianRed"
+                            FontWeight="DemiBold"
+                            FontSize="15" Width="361"
+                                       />
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Transparent" Width="140" x:Name="customizeTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/customize.png" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text=" Customize" 
+                                   Foreground="#0f0f2f" 
+                                   FontWeight="Medium" 
+                                   FontSize="16"
+                                   FontFamily="Font/#StardosRegular"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Background="BlueViolet" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid Background="White" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="312"></RowDefinition>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Background="White" Margin="0,2,0,-2">
+                                <Slider  HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="770"
+                                             x:Name="Slider"
+                                             TickPlacement="Both"
+                                             TickFrequency="1" 
+                                             IsSnapToTickEnabled="True" 
+                                             SmallChange="1" 
+                                             UseLayoutRounding="False"
+                                             ValueChanged="Slider_ValueChanged"
+                                             Foreground="Blue" Cursor="Hand" Height="31" BorderBrush="#FF002EFF"
+                                             
+                                             >
+                                    <Slider.ToolTip>
+                                        <ToolTip>
+                                            Swipe to choose the size of your mosaic picture and suitable for sharing on your desired social media platforms.
+                                        </ToolTip>
+                                    </Slider.ToolTip>
+                                </Slider>
+                                <Image Name="px500"  Source="/Images/Social/500px.png" Margin="57,114,664,161"/>
+                                <Image Name="imgbox" Source="/Images/Social/imgbox.png" Width="75" Margin="131,123,588,163"/>
+                                <Image Name="whatsapp" Source="/Images/Social/Whatsapp.png" Margin="224,122,482,163"/>
+                                <Image Name="pinterest" Source="/Images/Social/pinterest.jpg" Margin="314,122,389,161"/>
+                                <Image Name="imgur" Source="/Images/Social/imgur.png" Width="85" Margin="315,153,394,128"/>
+                                <Image Name="postimage" Source="/Images/Social/postimages.png" Margin="401,123,303,163"/>
+                                <Image Name="facebook" Source="/Images/Social/facebook.jpg" Width="47" Margin="494,165,254,100"/>
+                                <Image Name="instagram" Source="/Images/Social/instagram.png" Margin="492,124,251,146"/>
+                                <Image Name="imgbb" Source="/Images/Social/imgbb.jpg" Width="70" Margin="539,117,185,143"/>
+                                <Image Name="photobucket" Source="/Images/Social/photobucket-logo.png" Width="120" Margin="671,118,3,163"/>
+                                <Image Name="shutterstock" Source="/Images/Social/Shutterstock.png" Width="110" Margin="681,140,3,146"/>
+                                <Image Name="googlephotos" Source="/Images/Social/googlephotos.jpeg" Width="90" Margin="697,163,3,104"/>
+                                <Image Name="smugmug" Source="/Images/Social/SmugMug.png" Width="90" Margin="699,198,1,83"/>
+                                <Image Name="flickr" Source="/Images/Social/flickr.png" Width="70" Margin="720,223,4,60"/>
+                                <Image Name="dropbox" Source="/Images/Social/dropbox.png" Width="90" Margin="699,251,1,35"/>
+                                <Image Name="googledrive" Source="/Images/Social/Google_Drive.png" Width="110" Margin="678,273,2,8"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="106,83,673,194"/>
+                                <Label FontSize="13" Content="Mosaic Image Tile Count: " FontWeight="UltraBold" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" FontWeight="UltraBold" Content=" " Name="tileCount" HorizontalAlignment="Left" Margin="187,185,0,0" VerticalAlignment="Top" />
+                                <Label FontSize="13" Content="Total Mosaic Pieces: " FontWeight="UltraBold" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" FontWeight="UltraBold" Content=" " x:Name="tileCount_Copy2" HorizontalAlignment="Left" Margin="153,209,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" Content="Image Resolution: " FontWeight="UltraBold" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" FontWeight="UltraBold" Content=" " x:Name="tileCount_Copy3" HorizontalAlignment="Left" Margin="140,233,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" Content="Jpeg/Jpg(Compressed) Image Size: " FontWeight="UltraBold" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" FontWeight="UltraBold" Content=" " x:Name="tileCount_Copy" HorizontalAlignment="Left" Margin="250,257,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" Content="Uncompressed Image Size: " FontWeight="UltraBold" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top"/>
+                                <Label FontSize="13" FontWeight="UltraBold" Content=" " x:Name="tileCount_Copy1" HorizontalAlignment="Left" Margin="194,281,0,0" VerticalAlignment="Top"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="160,83,619,194"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="279,83,500,194"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="355,83,424,194"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="420,83,359,194"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="507,83,272,194"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="539,83,240,194"/>
+                                <Image Source="Images/pielxcustomize.jpg" Margin="756,83,23,194"/>
+                                <TextBlock Text="Slide the sliders button to customize your Mosaic Image." 
+                                    HorizontalAlignment="Center" 
+                                    Margin="10,10,10,0" 
+                                    VerticalAlignment="Top" 
+                                    RenderTransformOrigin="0.474,0.577"
+                                    Foreground="BlueViolet"
+                                    FontWeight="ExtraBold"
+                                    FontSize="25" Width="774"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Center"
+                                   />
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Button x:Name="backtoVideoSelect"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Back"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="backPage"
+                                        Margin="18,10,19,0"
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Back to Add Videos from Local Computer screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <Button x:Name="nextToFinish"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Content="Start"
+                                        FontSize="25"
+                                        FontWeight="Medium"
+                                        PreviewMouseDown="nextToFinish_MouseDown"
+                                        Margin="10,10,10,0"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center" Width="138"
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Starts the process of creating your mosaic image based on your selections.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border CornerRadius="25" Width="120" Height="50" BorderBrush="BlueViolet"
+                                        BorderThickness="2" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="FinishTab" Background="Transparent" Width="95">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/finish.png" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text=" Finish" 
+                                   Foreground="#0f0f2f" 
+                                   FontWeight="Medium" 
+                                   FontSize="16"
+                                   FontFamily="Font/#StardosRegular"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid Background="BlueViolet" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid Background="White" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="382*"></ColumnDefinition>
+                            <ColumnDefinition Width="15*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1" Background="White" >
+                                <Button x:Name="restart"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Content="Start New Project"
+                                    FontSize="18"
+                                    FontWeight="Bold"                                        
+                                    PreviewMouseDown="restart_PreviewMouseDown"
+                                    Margin="97,347,97,6"
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Go to Start New Mosaic Image Project screen.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Blue"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border CornerRadius="15" Width="200" Height="30" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Image 
+                                       Margin="-174,307,421,27"
+                                       Name="donate"  
+                                       PreviewMouseDown="donate_PreviewMouseDown"
+                                       >
+                                    <Image.ToolTip>
+                                        <ToolTip>
+                                            Help us improve the software.
+                                        </ToolTip>
+                                    </Image.ToolTip>
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="Images/donateFirst.png"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="Images/donateLast.png"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                                <Button x:Name="OpenImagePath"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Content="Open Image"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    PreviewMouseDown="OpenImagePath_PreviewMouseDown"
+                                    Margin="120,306,122,38"  
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center" Height="39"
+                                    >
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            Opens the path of the mosaic image you created.
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Background" Value="Red"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True" >
+                                                    <Setter Property="Background" Value="DarkRed"/>
+                                                    <Setter Property="Button.Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.5" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border CornerRadius="15" Width="140" Height="30" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="Black" Direction="320" ShadowDepth="3" BlurRadius="5" Opacity="0.3" />
+                                                </Border.Effect>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Grid>
+                                    <Border Width="250" Height="250" Margin="76,14,69,120" BorderBrush="Black" BorderThickness="1">
+                                        <Border.Effect>
+                                            <DropShadowEffect />
+                                        </Border.Effect>
+                                    </Border>
+                                    <Rectangle Fill="White" Stroke="Blue" Margin="76,14,69,120" Width="250" Height="250">
+                                    </Rectangle>
+                                    <MediaElement Width="240" Source="Images/loading.gif" Margin="81,23,74,129" x:Name="loading" LoadedBehavior="Play" Visibility="Visible" UnloadedBehavior="Manual" MediaEnded="loading_MediaEnded"/>
+                                </Grid>
+                                <Image Width="250" Height="250" x:Name="thumbImage" Source="/Images/finish.png" Margin="4,17,0,123" Visibility="Hidden"/>
+                                <Image 
+                                    Margin="-338,310,576,27"
+                                    x:Name="shareButton"  
+                                    PreviewMouseDown="shareButton_PreviewMouseDown"
+                                       >
+                                    <Image.ToolTip>
+                                        <ToolTip>
+                                            Shares your Mosaic Image on selected Social Media platform.
+                                        </ToolTip>
+                                    </Image.ToolTip>
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="Images/share2.png"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="Images/share1.png"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                                <Label Name="sizeOfImage" 
+                                    Content="Image Size: " 
+                                       HorizontalAlignment="Center" 
+                                       Margin="77,281,74,0" 
+                                       VerticalAlignment="Top"
+                                       Foreground="DarkBlue"
+                                       FontWeight="Bold"
+                                       FontSize="17" Width="246"
+                                       HorizontalContentAlignment="Center"
+                                       />
+                                <Label x:Name="followUs" 
+                                    Content="Follow Us:" 
+                                    HorizontalAlignment="Center" 
+                                    Margin="-259,361,569,0" 
+                                    VerticalAlignment="Top"
+                                    Foreground="BlueViolet"
+                                    FontWeight="DemiBold"
+                                    FontSize="17" Width="87"
+                                    HorizontalContentAlignment="Center"
+                                       FontStyle="Italic" Height="28"
+                                       />
+                            </Grid>
+                        </Grid>
+                        <ListView Name="socialListBox" HorizontalAlignment="Left" Height="250" Margin="65,59,0,0" VerticalAlignment="Top" Width="311" BorderBrush="Blue">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ToolTip>
+                                <ToolTip>
+                                    Select a Social Media icon to Share on.
+                                </ToolTip>
+                            </ListView.ToolTip>
+                        </ListView>
+                        <MediaElement Visibility="Visible" Source="Images/social.gif" Margin="68,62,400,86" x:Name="social" LoadedBehavior="Play" UnloadedBehavior="Manual" MediaEnded="social_MediaEnded"/>
+                        <TextBlock Text="After your Mosaic Image is prepared, you can share it on social media links below." 
+                            HorizontalAlignment="Center" 
+                            Margin="10,3,333,0" 
+                            VerticalAlignment="Top" 
+                            RenderTransformOrigin="0.474,0.577"
+                            Foreground="BlueViolet"
+                            FontWeight="ExtraBold"
+                            FontSize="20" Width="421"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                                   />
+                        <Image Name="facebookLink" 
+                               Margin="261,360,469,0"
+                               Stretch="Fill" 
+                               PreviewMouseDown="facebookLink_PreviewMouseDown"
+                               
+                               >
+                            <Image.ToolTip>
+                                <ToolTip>
+                                    Follow us on Facebook.
+                                </ToolTip>
+                            </Image.ToolTip>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="Images/Social/facebook2.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="Images/Social/facebook.jpg"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image 
+                               Name="instagramLink" 
+                               Margin="226,361,504,0"
+                               PreviewMouseDown="instagramLink_PreviewMouseDown"
+                               >
+                            <Image.ToolTip>
+                                <ToolTip>
+                                    Follow us on Instagram.
+                                </ToolTip>
+                            </Image.ToolTip>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="Images/Social/instagram2.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="Images/Social/instagram.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <WebBrowser HorizontalAlignment="Center"                    
+                    Height="120" 
+                    Grid.Row="2" 
+                    VerticalAlignment="Center" 
+                    Width="800"
+                    x:Name="myBrowser"
+                    ScrollViewer.CanContentScroll="False"
+                    MouseDown="myBrowser_MouseDown" Grid.ColumnSpan="2"
+                    OverridesDefaultStyle="False"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    />
+        <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="570" Grid.Row="1" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="800"
+                   Opacity=".5" Visibility="Hidden" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
