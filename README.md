@@ -28,6 +28,22 @@ Originally developed in **2021**, VidsToPix combines image processing, video ana
 
 ---
 
+## Video Demo
+
+Watch VidsToPix in action:
+
+https://www.youtube.com/watch?v=VIDEO_ID
+
+The video demonstrates the complete workflow:
+
+* Creating a new project
+* Selecting a target image
+* Adding source videos
+* Choosing the mosaic size
+* Generating the final photomosaic
+
+---
+
 # Features
 
 * Create photomosaic images from video frames
