@@ -32,7 +32,7 @@ Originally developed in **2021**, VidsToPix combines image processing, video ana
 
 Watch VidsToPix in action:
 
-https://www.youtube.com/watch?v=VIDEO_ID
+https://youtu.be/P-XPhB95uYQ?si=CCWqEiX65zYnbcfa
 
 The video demonstrates the complete workflow:
 
